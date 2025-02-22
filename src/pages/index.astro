@@ -1,11 +1,12 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import Layout from "../layouts/Layout.astro";
+import { Button, Typography } from "antd";
 ---
 
 <Layout>
-	<Welcome />
+	<Typography.Title level={1}>This is an ANT Button</Typography.Title>
+	<Button client:load type="primary">Click me</Button>
+
+	<h1>This is a tailwind button</h1>
+	<button class="bg-blue-500 hover:bg-blue-700 active:bg-blue-800 text-white p-2 rounded transition-colors duration-200">Click me</button>
 </Layout>
