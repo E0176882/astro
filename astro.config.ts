@@ -12,14 +12,9 @@ import spotlightjs from '@spotlightjs/astro';
 
 // https://astro.build/config
 export default defineConfig({
-  integrations: [
-    react(),
-    partytown(),
-    sentry(),
-    spotlightjs()
-  ],
+  integrations: [react(), partytown(), sentry(), spotlightjs()],
 
   vite: {
-    plugins: [tailwindcss()]
-  }
+    plugins: [tailwindcss()],
+  },
 });

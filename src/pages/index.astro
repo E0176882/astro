@@ -1,12 +1,88 @@
 ---
-import Layout from "../layouts/Layout.astro";
-import { Button, Typography } from "antd";
+import Layout from '../layouts/Layout.astro';
+import { Button, Typography, Row, Col, Card } from 'antd';
 ---
 
 <Layout>
-	<Typography.Title client:only="react">This is an ANT Button</Typography.Title>
-	<Button client:load type="primary">Click me</Button>
+  <div class='p-4'>
+    <Typography.Title level={1} client:load>Responsive Design Test Page</Typography.Title>
 
-	<h1>This is a tailwind button</h1>
-	<button class="bg-blue-500 hover:bg-blue-700 active:bg-blue-800 text-white p-2 rounded transition-colors duration-200">Click me</button>
+    {/* Tailwind Responsive Grid */}
+    <div class='mb-8'>
+      <Typography.Title level={2} client:load>Tailwind Responsive Grid</Typography.Title>
+      <div
+        class='xs:grid-cols-2 grid grid-cols-1 gap-4 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6'
+      >
+        {
+          Array.from({ length: 6 }).map((_, i) => (
+            <div class='rounded bg-blue-500 p-4 text-center text-white'>Box {i + 1}</div>
+          ))
+        }
+      </div>
+    </div>
+
+    {/* Ant Design Responsive Grid */}
+    <div class='mb-8'>
+      <Typography.Title level={2} client:load>Ant Design Responsive Grid</Typography.Title>
+      <Row gutter={[16, 16]} client:load>
+        {
+          Array.from({ length: 6 }).map((_, i) => (
+            <Col xs={12} sm={8} md={6} lg={4} xl={4}>
+              <Card client:load>Card {i + 1}</Card>
+            </Col>
+          ))
+        }
+      </Row>
+    </div>
+
+    {/* Responsive Text */}
+    <div class='mb-8'>
+      <Typography.Title level={2} client:load>Responsive Text</Typography.Title>
+      <p class='text-sm md:text-base lg:text-lg xl:text-xl'>
+        This text changes size at different breakpoints
+      </p>
+    </div>
+
+    {/* Responsive Button Sizes */}
+    <div class='mb-8'>
+      <Typography.Title level={2} client:load>Responsive Buttons</Typography.Title>
+      <div class='space-y-4'>
+        <div>
+          <Button type='primary' size='large' className='hidden lg:inline-block' client:load>
+            Large Button (Desktop)
+          </Button>
+          <Button
+            type='primary'
+            size='middle'
+            className='hidden md:inline-block lg:hidden'
+            client:load
+          >
+            Medium Button (Tablet)
+          </Button>
+          <Button type='primary' size='small' className='inline-block md:hidden' client:load>
+            Small Button (Mobile)
+          </Button>
+        </div>
+
+        <div>
+          <button
+            class='rounded bg-green-500 p-2 text-sm text-white transition-all duration-200 hover:bg-green-700 md:p-3 md:text-base lg:p-4 lg:text-lg'
+          >
+            Tailwind Responsive Button
+          </button>
+        </div>
+      </div>
+    </div>
+
+    {/* Responsive Layout Changes */}
+    <div class='mb-8'>
+      <Typography.Title level={2} client:load>Responsive Layout</Typography.Title>
+      <div class='flex flex-col gap-4 md:flex-row'>
+        <div class='flex-1 rounded bg-purple-500 p-4 text-white'>Sidebar (Stacks on mobile)</div>
+        <div class='flex-2 rounded bg-purple-300 p-4 text-purple-900'>
+          Main Content (Stacks on mobile)
+        </div>
+      </div>
+    </div>
+  </div>
 </Layout>
