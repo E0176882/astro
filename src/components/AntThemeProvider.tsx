@@ -16,7 +16,7 @@ function AntThemeProvider({ children }: { children: React.ReactNode }) {
         },
       }}
     >
-      <StyleProvider hashPriority="high">{children}</StyleProvider>
+      <StyleProvider hashPriority='high'>{children}</StyleProvider>
     </ConfigProvider>
   );
 }

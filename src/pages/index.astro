@@ -5,11 +5,11 @@ import { Button, Typography, Row, Col, Card } from 'antd';
 
 <Layout>
   <div class='p-4'>
-    <Typography.Title level={1} client:load>Responsive Design Test Page</Typography.Title>
+    <Typography.Title level={1} client:only='react'>Responsive Design Test Page</Typography.Title>
 
     {/* Tailwind Responsive Grid */}
     <div class='mb-8'>
-      <Typography.Title level={2} client:load>Tailwind Responsive Grid</Typography.Title>
+      <Typography.Title level={2} client:only='react'>Tailwind Responsive Grid</Typography.Title>
       <div
         class='xs:grid-cols-2 grid grid-cols-1 gap-4 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6'
       >
@@ -23,12 +23,12 @@ import { Button, Typography, Row, Col, Card } from 'antd';
 
     {/* Ant Design Responsive Grid */}
     <div class='mb-8'>
-      <Typography.Title level={2} client:load>Ant Design Responsive Grid</Typography.Title>
-      <Row gutter={[16, 16]} client:load>
+      <Typography.Title level={2} client:only='react'>Ant Design Responsive Grid</Typography.Title>
+      <Row gutter={[16, 16]} client:only='react'>
         {
           Array.from({ length: 6 }).map((_, i) => (
-            <Col xs={12} sm={8} md={6} lg={4} xl={4}>
-              <Card client:load>Card {i + 1}</Card>
+            <Col xs={12} sm={8} md={6} lg={4} xl={4} client:only='react'>
+              <Card client:only='react'>Card {i + 1}</Card>
             </Col>
           ))
         }
@@ -37,7 +37,7 @@ import { Button, Typography, Row, Col, Card } from 'antd';
 
     {/* Responsive Text */}
     <div class='mb-8'>
-      <Typography.Title level={2} client:load>Responsive Text</Typography.Title>
+      <Typography.Title level={2} client:only='react'>Responsive Text</Typography.Title>
       <p class='text-sm md:text-base lg:text-lg xl:text-xl'>
         This text changes size at different breakpoints
       </p>
@@ -45,21 +45,31 @@ import { Button, Typography, Row, Col, Card } from 'antd';
 
     {/* Responsive Button Sizes */}
     <div class='mb-8'>
-      <Typography.Title level={2} client:load>Responsive Buttons</Typography.Title>
+      <Typography.Title level={2} client:only='react'>Responsive Buttons</Typography.Title>
       <div class='space-y-4'>
         <div>
-          <Button type='primary' size='large' className='hidden lg:inline-block' client:load>
+          <Button
+            type='primary'
+            size='large'
+            className='hidden lg:inline-block'
+            client:only='react'
+          >
             Large Button (Desktop)
           </Button>
           <Button
             type='primary'
             size='middle'
             className='hidden md:inline-block lg:hidden'
-            client:load
+            client:only='react'
           >
             Medium Button (Tablet)
           </Button>
-          <Button type='primary' size='small' className='inline-block md:hidden' client:load>
+          <Button
+            type='primary'
+            size='small'
+            className='inline-block md:hidden'
+            client:only='react'
+          >
             Small Button (Mobile)
           </Button>
         </div>
@@ -76,7 +86,7 @@ import { Button, Typography, Row, Col, Card } from 'antd';
 
     {/* Responsive Layout Changes */}
     <div class='mb-8'>
-      <Typography.Title level={2} client:load>Responsive Layout</Typography.Title>
+      <Typography.Title level={2} client:only='react'>Responsive Layout</Typography.Title>
       <div class='flex flex-col gap-4 md:flex-row'>
         <div class='flex-1 rounded bg-purple-500 p-4 text-white'>Sidebar (Stacks on mobile)</div>
         <div class='flex-2 rounded bg-purple-300 p-4 text-purple-900'>
