@@ -4,7 +4,7 @@ import { Button, Typography } from "antd";
 ---
 
 <Layout>
-	<Typography.Title client:load level={1}>This is an ANT Button</Typography.Title>
+	<Typography.Title client:only="react">This is an ANT Button</Typography.Title>
 	<Button client:load type="primary">Click me</Button>
 
 	<h1>This is a tailwind button</h1>
